@@ -1,7 +1,8 @@
 <script>
     import Header from '../components/Header.svelte'
     import Login from '../components/Login.svelte'
-    console.log('hello world')
+    import Inbox from '../components/Inbox.svelte'
+
 </script>
 
 <svelte:head>
@@ -9,8 +10,13 @@
 </svelte:head>
 
 <Header />
+
 <main>
-<Login />
+{#if true}
+<Login/>
+{:else if true}
+<Inbox />
+{/if}
 </main>
 
 <h1>Welcome to SvelteKit</h1>

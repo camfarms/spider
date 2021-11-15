@@ -1,6 +1,8 @@
 <script>
     import { username, user } from '../routes/user.js';
 
+
+
     function signout(){
         user.leave();
         username.set('');
