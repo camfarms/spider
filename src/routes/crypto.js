@@ -1,4 +1,5 @@
 import crypto from 'crypto-js';
 
-export var hash = crypto.SHA3("this is a test password").toString();
-
+export function hash(input){
+    return crypto.SHA3(input);
+}
