@@ -1,22 +1,8 @@
 <script>
-	import { user } from '../routes/user.js';
+	import { loginSecure, registerSecure } from '../routes/login.js'
 
 	let username;
 	let password;
-
-	function login() {
-		user.auth(username, password, ({ err }) => err && alert(err));
-	}
-
-	function register() {
-		user.create(username, password, ({ err }) => {
-			if (err) {
-				alert(err);
-			} else {
-				login();
-			}
-		});
-	}
 </script>
 
 <dev class="content">
@@ -29,8 +15,8 @@
 	<label for="password">Password</label>
 	<input name="password" bind:value={password} type="password" />
 
-	<button on:click={login}><b>Login</b></button>
-	<button on:click={register}><b>Register</b></button>
+	<button on:click={() => loginSecure(username, password)}><b>Login</b></button>
+	<button on:click={() => registerSecure(username, password)}><b>Register</b></button>
 </dev>
 
 <style>

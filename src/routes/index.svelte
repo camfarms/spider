@@ -3,6 +3,9 @@
     import Login from '../components/Login.svelte'
     import Inbox from '../components/Inbox.svelte'
 
+    import { username } from '../routes/user.js';
+
+
 </script>
 
 <svelte:head>
@@ -12,10 +15,10 @@
 <Header />
 
 <main>
-{#if true}
-<Login/>
-{:else if true}
-<Inbox />
+{#if $username}
+    <Inbox/>
+{:else}
+    <Login />
 {/if}
 </main>
 
