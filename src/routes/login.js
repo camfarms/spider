@@ -1,5 +1,5 @@
-import {user} from './user.js';
-import {hash} from './crypto.js';
+import { user } from './user.js';
+import { hash } from './crypto.js';
 
 export function loginSecure(username, password){
     var pass_hash = hash(password).toString();

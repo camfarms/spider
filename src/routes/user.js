@@ -23,14 +23,3 @@ db.on('auth', async(event) => {
 
     console.log(`Signed in as ${alias}`);
 });
-
-/**
- * steps to "messaging board"
- * get all db funcs in here or other backends
- * add message to database or make a different db called messageDb usr, message, time 
- * fetch & display messages 
- * 
- * ENCRYPTION 
- * GET from fe --> hash / sha256 --> store in gun
- * get from gun --> decrypt --> POST to fe  
- */
