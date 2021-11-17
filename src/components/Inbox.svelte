@@ -44,9 +44,24 @@
 	<div class="board">
 		<table>
 			<tr class="boardHead"><th colspan="2">welcome to the chat</th></tr>
-			<tr><td class="message">hello it's cade</td></tr>
-			<tr class="sender"><td><b>&#62; cade</b></td></tr>
-			<tr><td class="me-message">hello it's me (cam)</td></tr>
+			<tr>
+        <td class="message">
+          {#if textContents != []}
+            {textContents[0][1].toString()}
+          {/if}
+        </td>
+      </tr>
+			<tr class="sender">
+        <td>
+          <b>
+            {#if textContents != []}
+              {textContents[0][0].toString()}
+            {/if}
+          </b>
+        </td>
+      </tr>
+			<tr>
+        <td class="me-message">hello it's me (cam)</td></tr>
 			<tr><td class="me"><b>cam &#60;</b></td></tr>
 		</table>
 
