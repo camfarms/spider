@@ -6,19 +6,15 @@
 	let roomNum = 136; //default
 
 	let textContents = [];
-	let newMessage = "";
+	let newMessage = '';
 
 	function sendMessageToDB() {
 		let time = new Date().getTime();
-		db.get('messageBoard')
-			.get(roomNum)
-			.get(time)
-			.put({
-					sender: $username,
-					text: newMessage
-				}
-			);
-		newMessage = "";
+		db.get('messageBoard').get(roomNum).get(time).put({
+			sender: $username,
+			text: newMessage
+		});
+		newMessage = '';
 	}
 
 	function loadMessagesFromDB() {
@@ -26,7 +22,7 @@
 		db.get('messageBoard')
 			.get(roomNum)
 			.map()
-			.on(function(message){
+			.on(function (message) {
 				arr.push([message.sender, message.text]);
 			});
 		return arr;
@@ -45,23 +41,22 @@
 		<table>
 			<tr class="boardHead"><th colspan="2">welcome to the chat</th></tr>
 			<tr>
-        <td class="message">
-          {#if textContents != []}
-            {textContents[0][1].toString()}
-          {/if}
-        </td>
-      </tr>
+				<td class="message">
+					{#if textContents != []}
+						Hello, not empty
+					{/if}
+				</td>
+			</tr>
 			<tr class="sender">
-        <td>
-          <b>
-            {#if textContents != []}
-              {textContents[0][0].toString()}
-            {/if}
-          </b>
-        </td>
-      </tr>
-			<tr>
-        <td class="me-message">hello it's me (cam)</td></tr>
+				<td>
+					<b>
+						{#if textContents != []}
+							Goodbye, not empty
+						{/if}
+					</b>
+				</td>
+			</tr>
+			<tr> <td class="me-message">hello it's me (cam)</td></tr>
 			<tr><td class="me"><b>cam &#60;</b></td></tr>
 		</table>
 
