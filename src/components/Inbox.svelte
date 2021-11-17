@@ -5,7 +5,7 @@
   import { text } from 'svelte/internal';
 
 	let roomNum = 2; //default
-	let textContents = [];
+	let textContents = [["bot","start talking"]];
 	let message;
 	let count = 1;
 	function send() {
@@ -25,7 +25,7 @@
 			.get(roomNum)
 			.map()
 			.once(function (message) {
-				textContents.push([message.sender,message.text,count]);
+				textContents.push([message.sender,message.text]);
         //console.log(message.text);
 			});
       textContents.forEach((i) => {
@@ -42,9 +42,24 @@
 	<div class="board">
 		<table>
 			<tr class="boardHead"><th colspan="2">welcome to the chat</th></tr>
-			<tr><td class="message">hello it's cade</td></tr>
-			<tr class="sender"><td><b>&#62; cade</b></td></tr>
-			<tr><td class="me-message">hello it's me (cam)</td></tr>
+			<tr>
+        <td class="message">
+          {#if textContents != []}
+            {textContents[0][1].toString()}
+          {/if}
+        </td>
+      </tr>
+			<tr class="sender">
+        <td>
+          <b>
+            {#if textContents != []}
+              {textContents[0][0].toString()}
+            {/if}
+          </b>
+        </td>
+      </tr>
+			<tr>
+        <td class="me-message">hello it's me (cam)</td></tr>
 			<tr><td class="me"><b>cam &#60;</b></td></tr>
 		</table>
 
