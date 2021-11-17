@@ -8,10 +8,9 @@
 
 </script>
 
-<main>
+<div class="svelteHeader">
     {#if $username}
         <div class='user-info'>
-            <span>Hello {$username}!</span>
         </div>
 
         <button class="singout-button" on:click={signout}> 
@@ -21,4 +20,14 @@
     {:else}
         <h3>Gun Chat Default Header!</h3>
     {/if}
-</main>
+ </div>
+<style>
+  .svelteHeader {
+    padding-bottom: 30px;
+  }
+  button {
+    color: white;
+    background-color: darkblue;
+    box-shadow: 2px 4px 4px black;
+  }
+  </style>

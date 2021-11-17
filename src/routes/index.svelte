@@ -2,6 +2,7 @@
     import Header from '../components/Header.svelte'
     import Login from '../components/Login.svelte'
     import Inbox from '../components/Inbox.svelte'
+    import "../app.css";
 
     import { username } from '../routes/user.js';
 
@@ -12,7 +13,6 @@
     <title>Spider Messenger</title>
 </svelte:head>
 
-<Header />
 
 <main>
 {#if $username}
@@ -22,17 +22,8 @@
 {/if}
 </main>
 
-<h1>Welcome to SvelteKit</h1>
-
-
 <style>
-    h1 {
-        color: red;
-    }
     main {
-		background: darkblue;
-		height: 100%;
-		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
