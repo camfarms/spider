@@ -61,8 +61,8 @@
     box-shadow: 20px 25px black;
   }
   textarea {
-    background-color: #1a1a1a;
-    color: lightgreen;
+    background-color: white;
+    color: black;
     border-radius: 6px;
     box-shadow: 2px 5px 5px darkgray;
   }
