@@ -2,36 +2,38 @@
 	import { username, db } from '../routes/user.js';
 	import Header from '../components/Header.svelte';
 	import '../app.css';
-  import { text } from 'svelte/internal';
 
-	let roomNum = 2; //default
+	let roomNum = 136; //default
+
 	let textContents = [];
-	let message;
-	let count = 1;
-	function send() {
+	let newMessage = "";
+
+	function sendMessageToDB() {
+		let time = new Date().getTime();
 		db.get('messageBoard')
 			.get(roomNum)
+			.get(time)
 			.put({
-				message: {
 					sender: $username,
-					text: message,
-					sendTime: count
+					text: newMessage
 				}
-			});
-		count = count + 1;
+			);
+		newMessage = "";
 	}
-	function refresh() {
+
+	function loadMessagesFromDB() {
+		let arr = [];
 		db.get('messageBoard')
 			.get(roomNum)
 			.map()
-			.once(function (message) {
-				textContents.push([message.sender,message.text,count]);
-        //console.log(message.text);
+			.on(function(message){
+				arr.push([message.sender, message.text]);
 			});
-      textContents.forEach((i) => {
-        console.log(i[0]);
-        console.log(i[1]);
-      });
+		return arr;
+	}
+
+	function refresh() {
+		textContents = loadMessagesFromDB();
 	}
 </script>
 
@@ -49,10 +51,10 @@
 		</table>
 
 		<div class="messageBox">
-			<textarea cols="50" rows="5" bind:value={message} id="paste" placeholder="message..." />
+			<textarea cols="50" rows="5" bind:value={newMessage} id="paste" placeholder="message..." />
 			<br />
-			<button on:click={send}>Submit</button>
-      <button on:click={refresh}>refresh</button>
+			<button on:click={sendMessageToDB}>Submit</button>
+			<button on:click={refresh}>Refresh</button>
 		</div>
 	</div>
 </main>
