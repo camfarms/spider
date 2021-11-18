@@ -59,7 +59,9 @@
 						<tr>
 							<td class="me-message"> {message[1]} </td>
 						</tr>
-						<tr><td class="me"><b>{message[0]}</b></td></tr>
+						<tr>
+							<td class="me"><b>{message[0]}</b></td>
+						</tr>
 					{/if}
 				{/each}
 			{/if}
