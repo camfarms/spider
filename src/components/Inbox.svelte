@@ -3,7 +3,7 @@
 	import Header from '../components/Header.svelte';
 	import '../app.css';
 
-	let roomNum = 136; //default
+	let roomNum = 137; //default
 
 	let textContents = [];
 	let newMessage = '';
@@ -40,24 +40,29 @@
 	<div class="board">
 		<table>
 			<tr class="boardHead"><th colspan="2">welcome to the chat</th></tr>
-			<tr>
-				<td class="message">
-					{#if textContents != []}
-						Hello, not empty
+			{#if textContents != []}
+				{#each textContents as message}
+					{#if message[0] != $username}
+						<tr>
+							<td class="message">
+								{message[1]}<br />
+							</td>
+						</tr>
+						<tr class="sender">
+							<td>
+								<b>
+									{message[0]}<br />
+								</b>
+							</td>
+						</tr>
+					{:else}
+						<tr>
+							<td class="me-message"> {message[1]} </td>
+						</tr>
+						<tr><td class="me"><b>{message[0]}</b></td></tr>
 					{/if}
-				</td>
-			</tr>
-			<tr class="sender">
-				<td>
-					<b>
-						{#if textContents != []}
-							Goodbye, not empty
-						{/if}
-					</b>
-				</td>
-			</tr>
-			<tr> <td class="me-message">hello it's me (cam)</td></tr>
-			<tr><td class="me"><b>cam &#60;</b></td></tr>
+				{/each}
+			{/if}
 		</table>
 
 		<div class="messageBox">
