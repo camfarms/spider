@@ -3,7 +3,7 @@
 	import Header from '../components/Header.svelte';
 	import '../app.css';
 
-	let roomNum = 137; //default
+	let roomNum = 140; //default
 
 	let textContents = [];
 	let newMessage = '';
@@ -59,7 +59,9 @@
 						<tr>
 							<td class="me-message"> {message[1]} </td>
 						</tr>
-						<tr><td class="me"><b>{message[0]}</b></td></tr>
+						<tr>
+							<td class="me"><b>{message[0]}</b></td>
+						</tr>
 					{/if}
 				{/each}
 			{/if}
