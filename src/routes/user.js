@@ -3,7 +3,7 @@ import 'gun/sea';
 import 'gun/axe';
 import { writable } from 'svelte/store';
 
-let heroku = 'https://spider-messenger.herokuapp.com/gun' 
+let heroku = 'https://spider-messenger.herokuapp.com/gun';
 //const db = GUN();
 
 //Using Heroku server at public network and localhost is local network
