@@ -3,11 +3,11 @@ import 'gun/sea';
 import 'gun/axe';
 import { writable } from 'svelte/store';
 
-let serverLocal = 'https://spider-messenger.herokuapp.com/' 
+let heroku = 'https://spider-messenger.herokuapp.com/gun' 
 //const db = GUN();
 
 //Using Heroku server at public network and localhost is local network
-export const db = GUN([serverLocal, 'http://localhost:8765/gun']);
+export const db = GUN([heroku, 'http://localhost:8765/gun']);
 
 // Gun User
 export const user = db.user().recall({sessionStorage: true});

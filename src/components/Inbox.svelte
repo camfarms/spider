@@ -66,7 +66,7 @@
 		</table>
 
 		<div class="messageBox">
-			<textarea cols="50" rows="5" bind:value={newMessage} id="paste" placeholder="message..." />
+			<textarea cols="30" rows="3" bind:value={newMessage} id="paste" placeholder="message..." />
 			<br />
 			<button on:click={sendMessageToDB}>Submit</button>
 			<button on:click={refresh}>Refresh</button>
@@ -85,8 +85,10 @@
 		box-shadow: 20px 25px black;
 	}
 	textarea {
-		background-color: white;
-		color: black;
+		background-color: black;
+		color: lightgreen;
+		font-size: 150%;
+		font-weight: bolder;
 		border-radius: 6px;
 		box-shadow: 2px 5px 5px darkgray;
 	}
@@ -113,6 +115,7 @@
 	}
 	button {
 		color: white;
+		margin: 5px;
 		background-color: darkgreen;
 		box-shadow: 2px 4px 4px black;
 	}
