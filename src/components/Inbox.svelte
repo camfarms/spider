@@ -9,31 +9,33 @@
 	let textContents = [];
 	let newMessage = '';
 
-	function sendMessageToDB() {
+	async function sendMessageToDB() {
 		let time = new Date().getTime();
 		db.get('messageBoard').get(roomNum).get(time).put({
 			sender: $username,
-			text: SEA.encrypt(newMessage,"#key")
+			text: await SEA.encrypt(newMessage,"#key")
 		});
 		newMessage = '';
 	}
 
-	function loadMessagesFromDB() {
+	async function loadMessagesFromDB() {
 		let arr = [];
 		db.get('messageBoard')
 			.get(roomNum)
 			.map()
-			.on(function (message) {
-				arr.push([message.sender, SEA.decrypt(message.text, "#key")]);
+			.on(async function (message) {
+                                var sender = message.sender;
+                                var message = (await SEA.decrypt(message.text, "#key")+'');
+				arr.push([sender, message]);
 			});
 		return arr;
 	}
 
-	function refresh() {
-		textContents = loadMessagesFromDB();
+	async function refresh() {
+		textContents = await loadMessagesFromDB();
 	}
-        onMount(()=>{
-          refresh();
+        onMount(async ()=>{
+          await refresh();
         });
 </script>
 
