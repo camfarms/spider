@@ -4,7 +4,7 @@
 	import '../app.css';
         import { onMount } from 'svelte';
 
-	let roomNum = 142; //default
+	let roomNum = 111; //default
 
 	let textContents = [];
 	let newMessage = '';
@@ -68,7 +68,7 @@
 			<textarea cols="30" rows="3" bind:value={newMessage} id="paste" placeholder="message..." />
 			<br />
 			<button on:click={sendMessageToDB}>Submit</button>
-			<button on:click={cleanRoom}>delete</button>
+			<!--<button on:click={refresh}>Refresh</button>-->
 		</div>
 	</div>
 </main>
