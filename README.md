@@ -51,6 +51,7 @@ just need to show messages are encrypted and user info is hashed, and both are s
 - Create an inbox page where user's conversations are stored
 - Implement room creation via QR code/unique ID 
 - Convert to mobile application
+- Public/Private key encryption of messages
 
 - [x] we have everything done right now 
   - we have: 
