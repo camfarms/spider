@@ -2,8 +2,9 @@
 	import { username, db } from '../routes/user.js';
 	import Header from '../components/Header.svelte';
 	import '../app.css';
+        import { onMount } from 'svelte';
 
-	let roomNum = 140; //default
+	let roomNum = 141; //default
 
 	let textContents = [];
 	let newMessage = '';
@@ -12,7 +13,7 @@
 		let time = new Date().getTime();
 		db.get('messageBoard').get(roomNum).get(time).put({
 			sender: $username,
-			text: newMessage
+			text: SEA.encrypt(newMessage,"#key")
 		});
 		newMessage = '';
 	}
@@ -23,7 +24,7 @@
 			.get(roomNum)
 			.map()
 			.on(function (message) {
-				arr.push([message.sender, message.text]);
+				arr.push([message.sender, SEA.decrypt(message.text, "#key")]);
 			});
 		return arr;
 	}
@@ -31,6 +32,9 @@
 	function refresh() {
 		textContents = loadMessagesFromDB();
 	}
+        onMount(()=>{
+          refresh();
+        });
 </script>
 
 <title>Spider</title>
