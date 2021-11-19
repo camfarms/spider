@@ -4,7 +4,7 @@
 	import '../app.css';
         import { onMount } from 'svelte';
 
-	let roomNum = 141; //default
+	let roomNum = 111; //default
 
 	let textContents = [];
 	let newMessage = '';
