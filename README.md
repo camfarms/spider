@@ -52,6 +52,13 @@ just need to show messages are encrypted and user info is hashed, and both are s
 - Implement room creation via QR code/unique ID 
 - Convert to mobile application
 
+- [x] we have everything done right now 
+  - we have: 
+    - hashed passwords 
+    - encrypted messages
+    - async display of messages as they come in 
+    - seamless sending of messages and auto updating
+
 ### Block chain piggy back (alternative approach)
 
 - [dart](https://ethereum.org/en/developers/docs/programming-languages/dart/)
