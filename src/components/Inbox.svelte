@@ -2,7 +2,7 @@
 	import { username, db } from '../routes/user.js';
 	import Header from '../components/Header.svelte';
 	import '../app.css';
-        import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 
 	let roomNum = 141; //default
 
@@ -11,23 +11,26 @@
 
 	async function sendMessageToDB() {
 		let time = new Date().getTime();
-		db.get('messageBoard').get(roomNum).get(time).put({
-			sender: $username,
-			text: await SEA.encrypt(newMessage,"#key")
-		});
+		db.get('messageBoard')
+			.get(roomNum)
+			.get(time)
+			.put({
+				sender: $username,
+				text: await SEA.encrypt(newMessage, '#key')
+			});
 		newMessage = '';
 	}
 
-        onMount(()=>{
-          db.get('messageBoard')
-                  .get(roomNum)
-                  .map()
-                  .once(async function (message) {
-                          var sender = message.sender;
-                          var message = (await SEA.decrypt(message.text, "#key")+'');
-                          textContents = [...textContents, [sender, message]];
-                  });
-        });
+	onMount(() => {
+		db.get('messageBoard')
+			.get(roomNum)
+			.map()
+			.once(async function (message) {
+				var sender = message.sender;
+				var message = (await SEA.decrypt(message.text, '#key')) + '';
+				textContents = [...textContents, [sender, message]];
+			});
+	});
 </script>
 
 <title>Spider</title>
@@ -68,7 +71,6 @@
 			<textarea cols="30" rows="3" bind:value={newMessage} id="paste" placeholder="message..." />
 			<br />
 			<button on:click={sendMessageToDB}>Submit</button>
-			<!--<button on:click={refresh}>Refresh</button>-->
 		</div>
 	</div>
 </main>
