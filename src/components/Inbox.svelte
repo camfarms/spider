@@ -18,24 +18,15 @@
 		newMessage = '';
 	}
 
-	async function loadMessagesFromDB() {
-		let arr = [];
-		db.get('messageBoard')
-			.get(roomNum)
-			.map()
-			.on(async function (message) {
-                                var sender = message.sender;
-                                var message = (await SEA.decrypt(message.text, "#key")+'');
-				arr.push([sender, message]);
-			});
-		return arr;
-	}
-
-	async function refresh() {
-		textContents = await loadMessagesFromDB();
-	}
-        onMount(async ()=>{
-          await refresh();
+        onMount(()=>{
+          db.get('messageBoard')
+                  .get(roomNum)
+                  .map()
+                  .once(async function (message) {
+                          var sender = message.sender;
+                          var message = (await SEA.decrypt(message.text, "#key")+'');
+                          textContents = [...textContents, [sender, message]];
+                  });
         });
 </script>
 
@@ -77,7 +68,7 @@
 			<textarea cols="30" rows="3" bind:value={newMessage} id="paste" placeholder="message..." />
 			<br />
 			<button on:click={sendMessageToDB}>Submit</button>
-			<button on:click={refresh}>Refresh</button>
+			<!--<button on:click={refresh}>Refresh</button>-->
 		</div>
 	</div>
 </main>
