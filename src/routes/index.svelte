@@ -1,7 +1,6 @@
 <script>
-    import Header from '../components/Header.svelte'
     import Login from '../components/Login.svelte'
-    import Inbox from '../components/Inbox.svelte'
+    import Chat from '../components/Chat.svelte'
     import "../app.css";
 
     import { username } from '../routes/user.js';
@@ -16,7 +15,7 @@
 
 <main>
 {#if $username}
-    <Inbox/>
+    <Chat/>
 {:else}
     <Login />
 {/if}
