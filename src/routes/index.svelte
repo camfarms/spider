@@ -16,10 +16,10 @@
 
 
 <main>
-{#if $userState == 'loggedIn'} 
+{#if $userState == 'chatting'} 
     <Chat/>
-<!-- {:else if $userState == 'loggedIn'}
-    <Inbox /> -->
+{:else if $userState == 'loggedIn'}
+    <Inbox />
 {:else}
     <Login />
 {/if}
