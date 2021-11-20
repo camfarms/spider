@@ -1,5 +1,5 @@
 <script>
-	import { loginSecure, registerSecure } from '../routes/login.js'
+	import { loginSecure, registerSecure } from '../routes/login.js';
 
 	let username;
 	let password;
@@ -11,23 +11,23 @@
 
 	<label for="username">Username</label>
 	<input name="username" bind:value={username} minlength="3" maxlength="16" />
-        <br>
+	<br />
 
 	<label for="password">Password</label>
 	<input name="password" bind:value={password} type="password" />
 
-        <br>
-  <dev class="logreg">
-	<button on:click={() => loginSecure(username, password)}><b>Login</b></button>
-	<button on:click={() => registerSecure(username, password)}><b>Register</b></button>
-  </dev>
+	<br />
+	<dev class="logreg">
+		<button on:click={() => loginSecure(username, password)}><b>Login</b></button>
+		<button on:click={() => registerSecure(username, password)}><b>Register</b></button>
+	</dev>
 </dev>
 
 <style>
 	button {
 		color: lightgray;
 		background-color: darkblue;
-                width: 15%;
+		width: 15%;
 		box-shadow: 2px 2px black;
 	}
 	.content {
@@ -36,16 +36,16 @@
 		background: #b9b9b9;
 		padding: 25px;
 		box-shadow: 15px 20px black;
-                display: flex;
-                flex-direction: column;
+		display: flex;
+		flex-direction: column;
 	}
-        .logreg {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-        }
+	.logreg {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 	input {
-                margin: 10px;
+		margin: 10px;
 		background-color: lightgray;
 	}
 </style>
