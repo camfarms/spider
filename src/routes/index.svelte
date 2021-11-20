@@ -1,9 +1,11 @@
 <script>
     import Login from '../components/Login.svelte'
     import Chat from '../components/Chat.svelte'
+    import Inbox from '../components/Inbox.svelte'
+
     import "../app.css";
 
-    import { username } from '../routes/user.js';
+    import { userState } from '../routes/user.js';
 
 
 </script>
@@ -14,8 +16,10 @@
 
 
 <main>
-{#if $username}
+{#if $userState == 'loggedIn'} 
     <Chat/>
+<!-- {:else if $userState == 'loggedIn'}
+    <Inbox /> -->
 {:else}
     <Login />
 {/if}

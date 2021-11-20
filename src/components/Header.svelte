@@ -1,9 +1,10 @@
 <script>
-	import { username, user } from '../routes/user.js';
+	import { username, user, userState } from '../routes/user.js';
 
 	function signout() {
 		user.leave();
 		username.set('');
+        userState.set('')
 	}
 </script>
 
