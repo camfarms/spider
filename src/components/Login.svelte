@@ -10,17 +10,32 @@
 	<h2>Spin your own web</h2>
 
 	<label for="username">Username</label>
-	<input name="username" bind:value={username} minlength="3" maxlength="16" />
+	<input name="username" bind:value={username} minlength="3" maxlength="16" >
 	<br />
 
 	<label for="password">Password</label>
-	<input name="password" bind:value={password} type="password" />
+	<input name="password" bind:value={password} type="password" id="textbox"/>
 
 	<br />
 	<dev class="logreg">
-		<button on:click={() => loginSecure(username, password)}><b>Login</b></button>
+		<button id="button" on:click={() => loginSecure(username, password)}><b>Login</b></button>
 		<button on:click={() => registerSecure(username, password)}><b>Register</b></button>
 	</dev>
+
+	<script>
+        var button = document.getElementById("button");
+        var textBox = document.getElementById("textbox");
+ 
+        textBox.addEventListener("keydown", function (event) {
+ 
+            // Checking if key pressed is ENTER or not
+            // if the key pressed is ENTER
+            // click listener on button is called
+            if (event.keyCode == 13) {
+                button.click();
+            }
+        });
+    </script>
 </dev>
 
 <style>
