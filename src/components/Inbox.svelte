@@ -12,7 +12,8 @@
 </script>
 
 <main>
-    <input name="room" bind:value={room} id="textbox"/>
+    <h1>Which room?</h1>
+    <input name="room" bind:value={room} id="textbox" placeholder="which room?"/>
     <button on:click={updateState} type="Submit" id="button"><b>Submit</b></button>
 
     <script>
@@ -30,3 +31,27 @@
         });
     </script>
 </main>
+<style>
+	main {
+		background: darkgrey;
+		display: flex;
+		flex-direction: column;
+		width: 40%;
+		align-items: center;
+		padding: 20px;
+		box-shadow: 20px 25px black;
+	}
+	button {
+		color: darkgray;
+		margin: 20px;
+		background-color: darkgreen;
+		box-shadow: 2px 4px 4px black;
+	}
+	input {
+	       background-color: black;
+	       color: lightgreen;
+	}
+	::placeholder {
+	        color: lightgray;
+	}
+</style>
