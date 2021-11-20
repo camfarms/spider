@@ -1,10 +1,10 @@
 <script>
-	import { username, db } from '../routes/user.js';
+	import { username, db, roomID } from '../routes/user.js';
 	import Header from '../components/Header.svelte';
 	import '../app.css';
 	import { onMount } from 'svelte';
 
-	let roomNum = 111; //default
+	let roomNum = $roomID //default
 
 	let textContents = [];
 	let newMessage = '';
@@ -35,7 +35,8 @@
 
 <title>Spider</title>
 <main>
-	<h1>{$username}'s CobWeb</h1>
+	<h1>{$username}'s CobWeb <br>
+		Room ID: {roomNum}</h1>
 	<Header />
 	<div class="board">
 		<table>

@@ -17,7 +17,7 @@ export const username = writable('');
 
 export const userState = writable('');
 
-export let roomNum = writable('');
+export const roomID = writable('');
 
 user.get('alias').on(v => username.set(v));
 
