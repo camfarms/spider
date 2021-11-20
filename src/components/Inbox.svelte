@@ -13,7 +13,7 @@
 
 <main>
     <h1>Which room?</h1>
-    <input name="room" bind:value={room} id="textbox" placeholder="which room?"/>
+    <input name="room" bind:value={room} id="textbox" placeholder="enter #..."/>
     <button on:click={updateState} type="Submit" id="button"><b>Submit</b></button>
 
     <script>

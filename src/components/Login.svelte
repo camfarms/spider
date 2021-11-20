@@ -8,14 +8,14 @@
 <dev class="content">
 	<h1>Spider Messenger</h1>
 	<h2>Spin your own web</h2>
-
+        <dev class = "logForms">
 	<label for="username">Username</label>
-	<input name="username" bind:value={username} minlength="3" maxlength="16" >
+	<input name="username" bind:value={username} minlength="3" maxlength="16" placeholder="user..." />
 	<br />
 
 	<label for="password">Password</label>
-	<input name="password" bind:value={password} type="password" id="textbox"/>
-
+	<input name="password" bind:value={password} type="password" id="textbox" placeholder="passwd..." />
+        </dev>
 	<br />
 	<dev class="logreg">
 		<button id="button" on:click={() => loginSecure(username, password)}><b>Login</b></button>
@@ -39,15 +39,29 @@
 </dev>
 
 <style>
+        ::placeholder {
+                color: darkgray;
+        }
+        h2,h1 {
+		display: flex;
+		flex-direction: column;
+                align-self: center;
+        }
+        .logForms {
+                width: 45%;
+		display: flex;
+		flex-direction: column;
+                align-self: center;
+        }
 	button {
-		color: lightgray;
+		color: lightgreen;
 		background-color: darkblue;
-		width: 15%;
+		width: 25%;
 		box-shadow: 2px 2px black;
 	}
 	.content {
 		margin-top: 125px;
-		width: 90%;
+		width: 50%;
 		background: #b9b9b9;
 		padding: 25px;
 		box-shadow: 15px 20px black;
@@ -61,6 +75,7 @@
 	}
 	input {
 		margin: 10px;
-		background-color: lightgray;
+		background-color: black;
+                color: lightgreen;
 	}
 </style>
