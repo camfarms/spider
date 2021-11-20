@@ -40,6 +40,19 @@ Dectentralized messenger / Comp Security Final project
 - from here on focus on getting messaging to work, ie figuring out how to exchange public keys is extra, eventually will impliment but for due date
 just need to show messages are encrypted and user info is hashed, and both are stored in gunDB. 
 
+## TODO: QOL Changes
+- When 'enter' key is pressed, submit button is pressed
+- Allow user to enter room number through interface
+- Add emojis (?)
+- Add time stamps to messages
+- Ability to delete chatroom/delete messages
+
+## TODO: Major updates
+- Create an inbox page where user's conversations are stored
+- Implement room creation via QR code/unique ID 
+- Convert to mobile application
+- Public/Private key encryption of messages
+
 - [x] we have everything done right now 
   - we have: 
     - hashed passwords 
