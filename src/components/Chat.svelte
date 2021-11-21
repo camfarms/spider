@@ -163,4 +163,7 @@
 		flex-direction: column;
 		align-items: center;
 	}
+	::placeholder {
+	        color: lightgray;
+	}
 </style>
