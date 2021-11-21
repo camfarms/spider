@@ -12,6 +12,7 @@
 </script>
 
 <main>
+    <p>Enter your desired chat room's ID</p>
     <input name="room" bind:value={room} id="textbox"/>
     <button on:click={updateState} type="Submit" id="button"><b>Submit</b></button>
 
@@ -30,3 +31,9 @@
         });
     </script>
 </main>
+
+<style>
+    p {
+        color: white;
+    }
+</style>

@@ -69,7 +69,7 @@
 		</table>
 
 		<div class="messageBox">
-			<textarea id="textbox" cols="30" rows="3" bind:value={newMessage} placeholder="message..." />
+			<textarea id="textbox" cols="45" rows="3" bind:value={newMessage} placeholder="message..." />
 			<br />
 			<button id="button" on:click={sendMessageToDB}>Submit</button>
 		</div>
