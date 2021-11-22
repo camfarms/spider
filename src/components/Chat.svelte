@@ -40,21 +40,15 @@
 	<Header />
 	<div class="board">
 		<table>
-			<tr class="boardHead"><th colspan="2">welcome to the chat</th></tr>
+			<tr class="boardHead"><th colspan="2">Welcome to the chat</th></tr>
 			{#if textContents != []}
 				{#each textContents as message}
 					{#if message[0] != $username}
 						<tr>
-							<td class="message">
-								{message[1]}<br />
-							</td>
+							<td class="message"> {message[1]} </td>
 						</tr>
-						<tr class="sender">
-							<td>
-								<b>
-									{message[0]}<br />
-								</b>
-							</td>
+						<tr>
+							<td class="sender"><b>{message[0]}</b></td>
 						</tr>
 					{:else}
 						<tr>
@@ -92,6 +86,12 @@
 </main>
 
 <style>
+	td.message:hover {
+		background-color: red;
+	}
+	td.me-message:hover {
+		background-color: red;
+	}
 	main {
 		background: darkgrey;
 		display: flex;

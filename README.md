@@ -46,6 +46,7 @@ just need to show messages are encrypted and user info is hashed, and both are s
 - Add emojis (?)
 - Add time stamps to messages
 - Ability to delete chatroom/delete messages
+- Make chat scrollable 
 
 ## TODO: Major updates
 - Create an inbox page where user's conversations are stored
