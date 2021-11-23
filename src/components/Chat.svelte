@@ -2,32 +2,58 @@
 	import { username, db, roomID } from '../routes/user.js';
 	import Header from '../components/Header.svelte';
 	import '../app.css';
+        import {hash} from '../routes/crypto.js';
 	import { onMount } from 'svelte';
 
-	let roomNum = $roomID //default
+        // get current room 
+	let roomNum = $roomID
+        // create a key unique to the room id 
+        let key = hash(roomNum.toString()).toString();
 
+        // array for temp storage of room's messages 
 	let textContents = [];
+        // current user's message 
 	let newMessage = '';
 
+        /**
+         * get the user's message and put it in the database 
+         */
 	async function sendMessageToDB() {
+                // time of new message 
 		let time = new Date().getTime();
+
+                // get the current room from db 
 		db.get('messageBoard')
 			.get(roomNum)
 			.get(time)
-			.put({
+                        // put the message in form user, encrypted message
+			.put({ 
 				sender: $username,
-				text: await SEA.encrypt(newMessage, '#key')
-			});
+                                // encrypt 
+				text: await SEA.encrypt(newMessage, key)
+		});
+                // clear new message 
 		newMessage = '';
 	}
 
+        /** 
+          * onMount runs when the page opens 
+          */
 	onMount(() => {
+                // get the current room's "board" 
 		db.get('messageBoard')
 			.get(roomNum)
 			.map()
+                        // once opens the db when called and keeps it open
 			.once(async function (message) {
+                                // set variables to info from db 
 				var sender = message.sender;
-				var message = (await SEA.decrypt(message.text, '#key')) + '';
+				var message = (
+                                        await SEA.decrypt(
+                                                message.text,
+                                                key))
+                                                + '';
+                                // put the new data in temp array to be displayed 
 				textContents = [...textContents, [sender, message]];
 			});
 	});

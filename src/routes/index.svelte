@@ -1,12 +1,13 @@
 <script>
+    // get custom components 
     import Login from '../components/Login.svelte'
     import Chat from '../components/Chat.svelte'
     import Inbox from '../components/Inbox.svelte'
-
+    // get semi global css 
     import "../app.css";
 
+    // get the state of current user 
     import { userState } from '../routes/user.js';
-
 
 </script>
 
