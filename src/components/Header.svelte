@@ -1,10 +1,14 @@
 <script>
+        // get user information from db 
 	import { username, user, userState } from '../routes/user.js';
 
+        /**
+         * signout & leave room  
+         */
 	function signout() {
 		user.leave();
 		username.set('');
-        userState.set('')
+                userState.set('')
 	}
 </script>
 

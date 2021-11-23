@@ -1,8 +1,13 @@
 <script>
+    // get current user & room information 
     import { roomID, userState } from '../routes/user.js';
 
     let room; 
 
+    /**
+      * update the state of current user to chatting and
+      * set their desired room id 
+      */
     function updateState(){
         if(room != null) {
             userState.set('chatting')

@@ -1,6 +1,8 @@
 <script>
+        // get login functions from backend 
 	import { loginSecure, registerSecure } from '../routes/login.js';
 
+        // variables to hold login info 
 	let username;
 	let password;
 </script>
